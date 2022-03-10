@@ -105,6 +105,39 @@
     tools:progress="100" />
 
   <TextView
+    android:id="@+id/xShiftLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/match_constraint"
+    android:text="@string/x_shift_label"
+    android:textAppearance="@style/TextAppearance.Uplift.SeekBarLabel"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/xShiftValue"
+    app:layout_constraintBottom_toBottomOf="@+id/xShiftValue" />
+
+  <TextView
+    android:id="@+id/xShiftValue"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/seekbar_margin_bottom"
+    android:text="@string/x_shift_value"
+    android:textAppearance="@style/TextAppearance.Uplift.SeekBarValue"
+    app:layout_constraintTop_toBottomOf="@+id/yScaleBar"
+    app:layout_constraintEnd_toEndOf="parent"
+    tools:text="0dp" />
+
+  <SeekBar
+    android:id="@+id/xShiftBar"
+    style="@style/Widget.Uplift.SeekBar"
+    android:layout_width="@dimen/match_constraint"
+    android:layout_height="@dimen/seekbar_height"
+    android:layout_marginTop="@dimen/value_label_margin_bottom"
+    android:max="@integer/max_shift_y_progress"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/xShiftValue"
+    app:layout_constraintEnd_toEndOf="parent"
+    tools:progress="100" />
+
+  <TextView
     android:id="@+id/yShiftLabel"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/match_constraint"
@@ -121,7 +154,7 @@
     android:layout_marginTop="@dimen/seekbar_margin_bottom"
     android:text="@string/y_shift_value"
     android:textAppearance="@style/TextAppearance.Uplift.SeekBarValue"
-    app:layout_constraintTop_toBottomOf="@+id/yScaleBar"
+    app:layout_constraintTop_toBottomOf="@+id/xShiftBar"
     app:layout_constraintEnd_toEndOf="parent"
     tools:text="0dp" />
 

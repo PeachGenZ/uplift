@@ -8,6 +8,8 @@
   <string name="x_scale_value">%d%%</string>
   <string name="y_scale_label">Scale Y</string>
   <string name="y_scale_value">%d%%</string>
+  <string name="x_shift_label">Shift X</string>
+  <string name="x_shift_value">%ddp</string>
   <string name="y_shift_label">Shift Y</string>
   <string name="y_shift_value">%ddp</string>
 

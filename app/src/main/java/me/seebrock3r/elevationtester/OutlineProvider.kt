@@ -10,6 +10,7 @@ internal class TweakableOutlineProvider(
     val cornerRadius: Float = 0f,
     var scaleX: Float = 1f,
     var scaleY: Float = 1f,
+    var xShift: Int = 0,
     var yShift: Int = 0
 ) : ViewOutlineProvider() {
 
@@ -18,7 +19,7 @@ internal class TweakableOutlineProvider(
     override fun getOutline(view: View?, outline: Outline?) {
         view?.background?.copyBounds(rect)
         rect.scale(scaleX, scaleY)
-        rect.offset(0, yShift)
+        rect.offset(xShift, yShift)
         outline?.setRoundRect(rect, cornerRadius)
     }
 }

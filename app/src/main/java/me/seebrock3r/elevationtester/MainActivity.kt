@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         setupPanelHeaderControls()
         setupElevationControls()
         setupScaleXYControls()
+        setupXShiftControls()
         setupYShiftControls()
         setupColorPickersOnAndroidPAndLater()
 
@@ -165,6 +166,18 @@ class MainActivity : AppCompatActivity() {
         yScaleValue.text = getString(R.string.y_scale_value, scale + 100)
     }
 
+    private fun setupXShiftControls() {
+        xShiftBar.setOnSeekBarChangeListener(
+            object : BetterSeekListener {
+                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                    setShiftX(progress)
+                }
+            }
+        )
+        xShiftValue.text = getString(R.string.x_shift_value, 0)
+        xShiftBar.progress = xShiftBar.max / 2
+    }
+
     private fun setupYShiftControls() {
         yShiftBar.setOnSeekBarChangeListener(
             object : BetterSeekListener {
@@ -175,6 +188,14 @@ class MainActivity : AppCompatActivity() {
         )
         yShiftValue.text = getString(R.string.y_shift_value, 0)
         yShiftBar.progress = yShiftBar.max / 2
+    }
+
+    private fun setShiftX(shiftXDp: Int) {
+        val adjustedShiftXDp = shiftXDp - xShiftBar.max / 2
+        val adjustedShiftXPixel = adjustedShiftXDp * resources.displayMetrics.density
+        outlineProvider.xShift = adjustedShiftXPixel.roundToInt()
+        mainButton.invalidateOutline()
+        xShiftValue.text = getString(R.string.x_shift_value, adjustedShiftXDp)
     }
 
     private fun setShiftY(shiftYDp: Int) {
